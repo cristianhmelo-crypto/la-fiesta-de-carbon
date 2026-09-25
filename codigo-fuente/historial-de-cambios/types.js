@@ -1,0 +1,41 @@
+Object.assign(PALS,{
+  bigotes:{b:'#9a6a44',s:'#5e3c22',z:'#6e4a2c',i:'#e0a0a8',e:'#9be15d',p:'#1b1530',n:'#d9707f',w:'#f4e6d0',l:'#ecd8b8',t:'#8a5c38',d:'#3a2414'},
+  pelusa:{b:'#cbc8d8',s:'#aeaac0',i:'#f0a8bc',e:'#ffb547',p:'#1b1530',n:'#e88aa0',w:'#ffffff',l:'#f3f1f8',t:'#bdb9cc',d:'#5e5a70'},
+  nube:{b:'#eeeef4',s:'#8d8c9c',z:'#8d8c9c',i:'#f4a6bd',e:'#5aa9ff',p:'#1b1530',n:'#f08aa5',w:'#ffffff',l:'#ffffff',t:'#8d8c9c',d:'#6d6c7c'},
+  sombra:{b:'#4a4858',s:'#3a3848',z:'#3a3848',i:'#a86a7c',e:'#ff5c5c',p:'#1b1530',n:'#b9687e',w:'#bdbbc9',l:'#6a687a',t:'#403e4e',d:'#b0aec0'},
+  mostaza:{b:'#e8c14a',s:'#c4942a',i:'#f4b08a',e:'#6fb3ff',p:'#1b1530',n:'#e0637c',w:'#fff8dc',l:'#fbeab0',t:'#d9ad38',d:'#6a4a10'},
+  canela:{b:'#c77a4a',s:'#9a5530',i:'#f0b0a0',e:'#7ad35a',p:'#1b1530',n:'#e0637c',w:'#fff1dc',l:'#f2d6bc',t:'#b56a3c',d:'#4a2410'},
+  garra:{b:'#d9702a',s:'#7a3510',z:'#7a3510',i:'#e89a80',e:'#ffe14a',p:'#1b1530',n:'#b9505e',w:'#fff1dc',l:'#f4c89a',t:'#c2601f',d:'#4a1c06'},
+  pirata:{b:'#6e6a7a',s:'#4a4658',z:'#4a4658',i:'#c48a9c',e:'#9be15d',p:'#1b1530',n:'#c47080',w:'#e8e4f0',l:'#e8e4f0',t:'#5e5a6a',d:'#2a2634'},
+  nieve:{b:'#f7f7fb',s:'#e4e2ee',i:'#f7b0c4',e:'#63c1f2',p:'#1b1530',n:'#f09ab0',w:'#ffffff',l:'#ffffff',t:'#eeedf6',d:'#8d8aa6'},
+  chispa:{b:'#f3ede2',s:'#f08a3a',z:'#f08a3a',i:'#f4a6bd',e:'#6fb3ff',p:'#1b1530',n:'#e7788f',w:'#ffffff',l:'#ffffff',t:'#f08a3a',d:'#6e3310'},
+  oreo:{b:'#26252e',s:'#26252e',z:'#26252e',i:'#b07a8a',e:'#ffd23f',p:'#0d0a14',n:'#e0708f',w:'#ffffff',l:'#f4f4f8',t:'#26252e',d:'#a6a6bd'},
+  lola:{b:'#f3ede2',s:'#8a5a3a',z:'#2e2638',i:'#f0a0b4',e:'#88c94f',p:'#1b1530',n:'#e7788f',w:'#ffffff',l:'#ffffff',t:'#8a5a3a',d:'#2e2638'}
+});
+const TYPES={
+  manchita:{name:'Manchita',hp:3,speed:30,box:true,pers:'educado',trait:'Tricolor y muy educada. Si se lo pedís bien, se va.'},
+  copito:{name:'Copito',hp:2,speed:26,box:true,sleeps:true,pers:'dormilon',trait:'Se quedó dormido en plena fiesta.'},
+  tigre:{name:'Tigre',hp:6,speed:22,box:false,food:true,pers:'hambriento',trait:'Glotón y grandote. No entra en ninguna caja.'},
+  humo:{name:'Humo',hp:4,speed:42,box:true,angry:true,pers:'agresivo',trait:'Patotero. Se enoja por cualquier cosa.'},
+  luna:{name:'Luna',hp:3,speed:36,box:true,escape:9,pers:'perdido',lost:'mono',
+    joke:['Me iría, pero no encuentro mis anteojos.','Los tenés puestos, Luna.','...Ah. Bueno, entonces perdí mi moño de seda. Es violeta.'],trait:'Siamesa despistada. Se escapa de las cajas.'},
+  rulo:{name:'Rulo',hp:5,speed:38,box:true,angry:true,pers:'okupa',steals:true,trait:'Anda de smoking y dice que tu casa ahora es suya.'},
+  bigotes:{name:'Bigotes',hp:3,speed:30,box:true,pers:'perdido',lost:'collar',
+    joke:['No me puedo ir, perdí las llaves de mi auto.','No tenés auto. No manejás.','Ah... entonces creo que perdí mi collar. Es rojo y tiene mi nombre.'],trait:'Distraído. Siempre pierde algo.'},
+  pelusa:{name:'Pelusa',hp:2,speed:28,box:true,pers:'fiestero',pct:.5,trait:'Fiestera. Se va cuando se termina la fiesta.'},
+  nube:{name:'Nube',hp:3,speed:28,box:true,food:true,pers:'hambriento',trait:'Vino por la comida y no se va sin probar algo.'},
+  sombra:{name:'Sombra',hp:5,speed:40,box:true,angry:true,pers:'okupa',steals:true,trait:'Callejera. Le echó el ojo a tus cosas.'},
+  mostaza:{name:'Mostaza',hp:3,speed:34,box:true,pers:'fiestero',pct:.8,trait:'El alma de la fiesta. Siempre es el último en irse.'},
+  canela:{name:'Canela',hp:3,speed:30,box:true,pers:'perdido',lost:'lana',
+    joke:['No me puedo ir sin mi celular.','Sos un gato. No tenés celular.','Cierto. Entonces es mi pelota de lana. Sin ella no duermo.'],trait:'Coqueta y un poco olvidadiza.'},
+  garra:{name:'Garra',hp:6,speed:34,box:false,angry:true,pers:'retador',trait:'Campeón de los techos. Anda buscando rival.',
+    dare:'¡Carbón! Dicen que sos el más popular del barrio. Vamos a ver si también sos el más fuerte.'},
+  pirata:{name:'Pirata',hp:5,speed:36,box:true,angry:true,pers:'retador',trait:'Perdió un ojo en una pelea y quiere revancha con alguien.',
+    dare:'¡Arrr, Carbón! Esta pista es chica para los dos. Pelea, ahora.'},
+  nieve:{name:'Nieve',hp:2,speed:26,box:true,pers:'educado',trait:'Elegantísima. Se va apenas se lo pedís.'},
+  chispa:{name:'Chispa',hp:3,speed:38,box:true,pers:'fiestero',pct:.65,trait:'No para de bailar hasta que se apagan las luces.'},
+  oreo:{name:'Oreo',hp:3,speed:30,box:true,pers:'perdido',lost:'disco',
+    joke:['No me puedo ir, perdí mi entrada del recital.','El recital fue hace diez años, Oreo.','Bueno... entonces perdí mi disco de vinilo. Sin música no me voy.'],trait:'Músico. Vive en otra época.'},
+  lola:{name:'Lola',hp:3,speed:28,box:true,food:true,pers:'hambriento',trait:'Se enteró de que había pollo y vino corriendo.'}
+};
+TYPES.humo.dare='¿Qué mirás, Carbón? ¿Querés pelea? Porque yo sí.';
