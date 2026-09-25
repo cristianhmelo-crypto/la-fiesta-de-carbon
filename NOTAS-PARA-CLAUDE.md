@@ -15,6 +15,15 @@
 
 ## Dónde está publicado
 
+**Página pública (GitHub Pages):** https://cristianhmelo-crypto.github.io/la-fiesta-de-carbon/
+Repositorio: https://github.com/cristianhmelo-crypto/la-fiesta-de-carbon (rama
+`main`, carpeta raíz). La página sirve `index.html`, que es una copia de
+`JUGAR - La Fiesta de Carbon.html`. Para actualizarla: regenerar el JUGAR,
+copiarlo a `index.html`, `git commit` y `git push` (GitHub CLI en
+`C:\Program Files\GitHub CLI\gh.exe`, sesión iniciada como
+cristianhmelo-crypto). La página se actualiza sola en uno o dos minutos. Las
+copias de `historial-de-cambios/respaldos/` no se suben (están en `.gitignore`).
+
 Artifact privado de claude.ai: https://claude.ai/artifact/AZxdN7yrmhcPhZ6oBRPGGP
 (versión 27: intro cinematográfica, gatos de frente y de perfil). Para publicar hay
 que leer primero la versión publicada completa (el sistema lo exige). Para actualizarlo desde otra conversación:
