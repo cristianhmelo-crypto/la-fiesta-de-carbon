@@ -25,7 +25,7 @@ cristianhmelo-crypto). La página se actualiza sola en uno o dos minutos. Las
 copias de `historial-de-cambios/respaldos/` no se suben (están en `.gitignore`).
 
 Artifact privado de claude.ai: https://claude.ai/artifact/AZxdN7yrmhcPhZ6oBRPGGP
-(versión 27: intro cinematográfica, gatos de frente y de perfil). Para publicar hay
+(versión 28: pantalla de carga, arreglos de niveles, baile con dificultad y pelea final con Rocco). Para publicar hay
 que leer primero la versión publicada completa (el sistema lo exige). Para actualizarlo desde otra conversación:
 leerlo con la acción `read` del Artifact y republicar con ese `url`.
 
@@ -164,10 +164,26 @@ el cuadro de diálogo. Dientes siempre blancos (lo pidió Cristian).
 3. **El baño**: cosas del baño al botiquín, patito a la bañera, papel y espuma,
    basura al cesto.
 4. **El balcón**: batalla de baile (flechas o WASD, el rival hace los pasos y
-   Carbón los repite). Hay que acertar el 90%. Ganar = reputación 100.
+   Carbón los repite). Ganar = reputación 100. Se elige la dificultad en la
+   tarjeta del nivel (`DDIFF`: FÁCIL 80%, NORMAL 88%, DIFÍCIL 93%, con distinta
+   velocidad y cantidad de pasos; `DLEV` guarda la elegida). Cada ronda tiene dos
+   tandas de "mirá y repetí" (`DPH=[0,24]`, termina en el pulso `DEND=51`).
+   Música con bombo en negras, palmas, charles, bajo en corcheas, acordes y
+   arpegio (`DCHORD`: La menor, Fa, Do, Sol).
 5. **El amor**: aparece Perla (gata blanca, su amor platónico) y le pide la mejor
    fiesta: subir la música, apagar las lámparas y llevarle leche a cada gato.
-6. **La fiesta imposible** (Perla le avisó a todo el barrio) → llega el humano.
+6. **El matón de la fiesta** (`boss:true`, mismo mapa MAP_LOVE con las luces
+   apagadas y la música al máximo): arranca con Carbón y Perla bailando
+   (`player.dance`), la puerta se abre de una patada y entra **Rocco** (clave
+   `maton`: atigrado gris con campera de cuero `J`, cierre `Z` y anteojos).
+   Charla y **pelea final** (`startFight(c,'boss')` → `bossSetup`): una sola
+   ronda de 99 s, Rocco con 170 de vida; Carbón usa con C el **Corazón de
+   Carbón** (tres corazones que vuelan, `kind:'heart'` en `F.proj`) y su
+   especial se carga solo (`bossTick`); Perla lo cura +30 una vez si le queda
+   poca vida; a la mitad de la vida Rocco se saca los anteojos (`maton2`),
+   se pone más rápido y alterna PISOTÓN MOTOQUERO y FURIA DE CUERO. Si gana →
+   charla con Perla → llega el humano (`startArrival`) → nivel 7. Si pierde →
+   tarjeta "Revancha".
 7. **¡Sálvese quien pueda!**: carrera en primera persona (se ven las patas de
    Carbón) por un pasillo hasta la ventana del fondo, con el humano atrás. ← →
    carril, ↑ saltar (gatos dormidos, cajas, gatos que cruzan), ↓ agacharse (mesas,
@@ -184,6 +200,23 @@ el cuadro de diálogo. Dientes siempre blancos (lo pidió Cristian).
    (se ve más grande de lejos); todo se dibuja en coordenadas del mundo. Las
    patas de Carbón siempre se ven desde arriba: al estirarse hacia adelante
    suben y se achican (nunca mostrar las almohadillas).
+
+## Otros detalles (versión 28)
+
+- **Pantalla de carga** (`startLoading`): antes del título prepara el escenario
+  de la intro y los gatos, con barra y Carbón caminando. Usa `setTimeout` (no
+  `requestAnimationFrame`) para no trabarse si la pestaña no está al frente.
+- **Salidas de los gatos** (`catExits`, `bfsTo`, `catGone`): se van por la
+  puerta o saltando por una ventana, la que les quede más cerca. En el
+  dormitorio había una planta delante de la puerta y los gatos no podían salir.
+- **Adónde va cada cosa** (`drawDestHints`): mientras Carbón lleva algo, el
+  destino se ilumina con un recuadro verde y un cartel con el objeto.
+  Heladera, pileta, botiquín y tacho se dibujan más grandes al final de
+  `paintMap`; las ventanas ocupan tres baldosas de ancho.
+- Charcos de leche y agua con contorno y brillo (antes casi no se veían).
+  Cuando quedan 3 tareas o menos, aparece un "!" sobre lo que falta.
+- `drawHuman(h,g=ctx)`: antes decía `g=g` y el humano no se dibujaba en la
+  llegada.
 
 ## Lo que sigue
 
