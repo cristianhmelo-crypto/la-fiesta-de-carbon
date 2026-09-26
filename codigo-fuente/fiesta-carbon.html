@@ -4310,8 +4310,8 @@ function startLoading(){
   jobs.push(()=>fightSprites('carbon'));
   const msgs=['Despertando a Carbón...','Inflando globos...','Enfriando la leche...','Afinando la música...','Encendiendo las luces del barrio...','Avisándoles a los gatos...'];
   const t0=performance.now();let i=0;
-  const tick=()=>{const s=performance.now();while(i<jobs.length&&performance.now()-s<14)jobs[i++]();
-    const k=Math.min(i/jobs.length,(performance.now()-t0)/1800),fill=$('#ldFill'),cat=$('#ldCat'),msg=$('#ldMsg');
+  const tick=()=>{const s=performance.now(),hid=document.hidden;while(i<jobs.length&&(hid||performance.now()-s<14))jobs[i++]();
+    const k=hid?i/jobs.length:Math.min(i/jobs.length,(performance.now()-t0)/1800),fill=$('#ldFill'),cat=$('#ldCat'),msg=$('#ldMsg');
     if(fill)fill.style.width=Math.round(k*100)+'%';if(cat){cat.style.left=Math.round(k*100)+'%';cat.src=SPR.carbon.side[Math.floor(performance.now()/180)%2].toDataURL();}
     if(msg)msg.textContent=msgs[Math.min(msgs.length-1,Math.floor(k*msgs.length))];
     if(k<1)setTimeout(tick,16);else setTimeout(showTitle,250);};
